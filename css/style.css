@@ -1,0 +1,26 @@
+.unit_icon_main{
+    width: 35px;
+    margin-bottom: 10px;
+}
+
+.unit_icon_hover{
+    width: 35px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.active .unit_icon_main{
+    display:none;
+}
+
+.active .unit_icon_hover{
+    display:block;
+}
+
+.btn:hover .unit_icon_main{
+    display: none;
+}
+
+.btn:hover .unit_icon_hover{
+    display:block;
+}

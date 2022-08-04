@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Satuan Panjang</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-6 col-sm-4 col-md-2 mb-4 mb-md-0">
+                <a href="#" type="button" class="btn btn-outline-dark w-100 p-3 active">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="icons/length-b.png" class="unit_icon_main"  alt="" srcset="">
+                        <img src="icons/length-w.png" class="unit_icon_hover"  alt="" srcset="">
+                        <span>Panjang</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 mb-4 mb-md-0">
+                <a href="#" type="button" class="btn btn-outline-secondary w-100 p-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="icons/temperature-b.png" class="unit_icon_main"  alt="" srcset="">
+                        <img src="icons/temperature-w.png" class="unit_icon_hover"  alt="" srcset="">
+                        <span>Suhu</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 mb-4 mb-md-0">
+                <a href="#" type="button" class="btn btn-outline-secondary w-100 p-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="icons/surface-b.png" class="unit_icon_main"  alt="" srcset="">
+                        <img src="icons/surface-w.png" class="unit_icon_hover"  alt="" srcset="">
+                        <span>Luas</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+                <a href="#" type="button" class="btn btn-outline-secondary w-100 p-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="icons/volume-b.png" class="unit_icon_main"  alt="" srcset="">
+                        <img src="icons/volume-w.png" class="unit_icon_hover"  alt="" srcset="">
+                        <span>Volume</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+                <a href="#" type="button" class="btn btn-outline-secondary w-100 p-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="icons/weight-b.png" class="unit_icon_main"  alt="" srcset="">
+                        <img src="icons/weight-w.png" class="unit_icon_hover"  alt="" srcset="">
+                        <span>Berat</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+                <a href="#" type="button" class="btn btn-outline-secondary w-100 p-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="icons/time-b.png" class="unit_icon_main"  alt="" srcset="">
+                        <img src="icons/time-w.png" class="unit_icon_hover"  alt="" srcset="">
+                        <span>Waktu</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <h3 class="mt-5">Konversi Satuang Panjang</h3>
+
+        <div class="row mt-5">
+            <div class="col-12 col-md-5">
+                <div class="input-group input-group-lg mb-5">
+                    <input type="text" class="form-control" placeholder="Nilai Satuan" id="nilai_x">
+                    
+                </div>
+                <input type="text" class="form-control mb-3" id="satuan_from" value="kg" disabled readonly>
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Kilometer</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Hektometer</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Dekameter</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Meter</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Desimeter</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Centimeter</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Milimeter</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Mikrometer</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Nanometer</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Mile</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Yard</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Foot</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Inch</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Light Year</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-2 d-flex align-items-center justify-content-center pb-3">
+                <h1>==</h1>
+            </div>
+            <div class="col-12 col-md-5">
+                <div class="input-group input-group-lg  mb-5">
+                    <input type="text" class="form-control" placeholder="Nilai Satuan" id="nilai_y">
+                </div>
+                <input type="text" class="form-control mb-3" id="satuan_to" value="kg" disabled readonly>
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Kilometer</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Hektometer</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Dekameter</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Meter</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Desimeter</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Centimeter</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Milimeter</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Mikrometer</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Nanometer</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Mile</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Yard</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Foot</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Inch</button>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <button type="button" class="btn btn-outline-secondary w-100">Light Year</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
