@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/convert_panjang.js"></script>
 </head>
 <body>
     <div class="container">
@@ -75,53 +77,47 @@
 
         <div class="row mt-5">
             <div class="col-12 col-md-5">
+                <label class="form-label">Input</label>
                 <div class="input-group input-group-lg mb-5">
-                    <input type="text" class="form-control" placeholder="Nilai Satuan" id="nilai_x">
-                    
+                    <input type="text" class="form-control rounded" placeholder="Nilai Satuan" id="nilai_x">
+                    <div class="invalid-feedback">
+                        Bukan Angka! Silahkan masukkan angka integer atau float
+                    </div>
                 </div>
-                <input type="text" class="form-control mb-3" id="satuan_from" value="kg" disabled readonly>
+                <input type="text" class="form-control mb-3 d-none" id="unit_from" value="km" disabled readonly>
                 <div class="row">
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Kilometer</button>
+                        <button type="button" class="btn btn-outline-secondary w-100 active" id="btn_from_km" onclick="setUnitForm('km', this.id)">Kilometer</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Hektometer</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_hm" onclick="setUnitForm('hm', this.id)">Hektometer</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Dekameter</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_dam" onclick="setUnitForm('dam', this.id)">Dekameter</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Meter</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_m" onclick="setUnitForm('m', this.id)">Meter</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Desimeter</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_dm" onclick="setUnitForm('dm', this.id)">Desimeter</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Centimeter</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_cm" onclick="setUnitForm('cm', this.id)">Centimeter</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Milimeter</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_mm" onclick="setUnitForm('mm', this.id)">Milimeter</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Mikrometer</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_mile" onclick="setUnitForm('mile', this.id)">Mile</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Nanometer</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_yrd" onclick="setUnitForm('yrd', this.id)">Yard</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Mile</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_ft" onclick="setUnitForm('ft', this.id)">Foot</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Yard</button>
-                    </div>
-                    <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Foot</button>
-                    </div>
-                    <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Inch</button>
-                    </div>
-                    <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Light Year</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_inc" onclick="setUnitForm('inc', this.id)">Inch</button>
                     </div>
                 </div>
             </div>
@@ -129,56 +125,54 @@
                 <h1>==</h1>
             </div>
             <div class="col-12 col-md-5">
+                <label class="form-label">Output</label>
                 <div class="input-group input-group-lg  mb-5">
-                    <input type="text" class="form-control" placeholder="Nilai Satuan" id="nilai_y">
+                    <input type="text" class="form-control rounded" placeholder="Nilai Konversi" id="nilai_y" disabled readonly>
+                    <div class="invalid-feedback">
+                        Bukan Angka! Silahkan masukkan angka integer atau float
+                    </div>
                 </div>
-                <input type="text" class="form-control mb-3" id="satuan_to" value="kg" disabled readonly>
+                <input type="text" class="form-control mb-3 d-none" id="unit_to" value="km" disabled readonly>
                 <div class="row">
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Kilometer</button>
+                        <button type="button" class="btn btn-outline-secondary w-100 active" id="btn_to_km" onclick="setUnitTo('km', this.id)">Kilometer</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Hektometer</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_hm" onclick="setUnitTo('hm', this.id)">Hektometer</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Dekameter</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_dam" onclick="setUnitTo('dam', this.id)">Dekameter</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Meter</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_m" onclick="setUnitTo('m', this.id)">Meter</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Desimeter</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_dm" onclick="setUnitTo('dm', this.id)">Desimeter</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Centimeter</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_cm" onclick="setUnitTo('cm', this.id)">Centimeter</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Milimeter</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_mm" onclick="setUnitTo('mm', this.id)">Milimeter</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Mikrometer</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_mile" onclick="setUnitTo('mile', this.id)">Mile</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Nanometer</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_yrd" onclick="setUnitTo('yrd', this.id)">Yard</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Mile</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_ft" onclick="setUnitTo('ft', this.id)">Foot</button>
                     </div>
                     <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Yard</button>
-                    </div>
-                    <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Foot</button>
-                    </div>
-                    <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Inch</button>
-                    </div>
-                    <div class="col-6 mb-3">
-                        <button type="button" class="btn btn-outline-secondary w-100">Light Year</button>
+                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_inc" onclick="setUnitTo('inc', this.id)">Inch</button>
                     </div>
                 </div>
             </div>
         </div>
+        
+        
+
     </div>
 </body>
 </html>
