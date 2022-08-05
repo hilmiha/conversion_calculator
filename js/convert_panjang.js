@@ -1,33 +1,3 @@
-window.onload = function(){
-    document.getElementById("nilai_x").addEventListener('input', convert);
-    document.getElementById("nilai_y").addEventListener('input', convert);
-}
-
-let btn_from_sebelumnya = "btn_from_km"
-function setUnitForm(x,y){
-    document.getElementById(btn_from_sebelumnya).classList.remove("active");
-    btn_from_sebelumnya = y;
-    document.getElementById(y).classList.add("active");
-    document.getElementById("unit_from").value = x;
-    convert()
-}
-
-
-let btn_to_sebelumnya = "btn_to_km"
-function setUnitTo(x,y){
-    document.getElementById(btn_to_sebelumnya).classList.remove("active");
-    btn_to_sebelumnya = y;
-    document.getElementById(y).classList.add("active");
-    document.getElementById("unit_to").value = x;
-    convert()
-}
-
-function validate(x){
-    let re = /^[-+]?[0-9]*\.?[0-9]+$/;
-
-    return (re.test(x));
-}
-
 function metrictometric(x,from,to){
     let metricunit = ["mm", "cm", "dm", "m", "dam", "hm", "km"];
     let indexof_unit_from = metricunit.indexOf(from);
@@ -148,87 +118,64 @@ function inctoft(x){
     return x / 12
 }
 
+function convert_panjang(nilai,unit_from,unit_to){
 
-function convert(){
-    let nilai_x = document.getElementById("nilai_x");
-    let nilai_y = document.getElementById("nilai_y");
+    let metricunit = ["mm", "cm", "dm", "m", "dam", "hm", "km"];
 
-    let unit_from = document.getElementById("unit_from");
-    let unit_to = document.getElementById("unit_to");
-
-    if(nilai_x.value != "" ){
-        if (validate(nilai_x.value) == true){
-            nilai_x.classList.remove("is-invalid");
-            nilai_y.classList.remove("is-invalid");
-            
-            let metricunit = ["mm", "cm", "dm", "m", "dam", "hm", "km"];
-
-            if (unit_from.value == unit_to.value) {
-                nilai_y.value = nilai_x.value
-            }
-
-            if (metricunit.includes(unit_from.value)){
-                if(metricunit.includes(unit_to.value)){
-                    nilai_y.value = metrictometric(nilai_x.value,unit_from.value,unit_to.value);
-                } else if(unit_to.value=="mile"){
-                    nilai_y.value = metrictomile(nilai_x.value,unit_from.value);
-                } else if(unit_to.value=="yrd"){
-                    nilai_y.value = metrictoyrd(nilai_x.value,unit_from.value);
-                } else if(unit_to.value=="ft"){
-                    nilai_y.value = metrictoft(nilai_x.value,unit_from.value);
-                } else if(unit_to.value=="inc"){
-                    nilai_y.value = metrictoinc(nilai_x.value,unit_from.value);
-                }   
-            } else if(unit_from.value == "mile"){
-                if(metricunit.includes(unit_to.value)){
-                    nilai_y.value = miletometric(nilai_x.value,unit_to.value);
-                } else if(unit_to.value=="yrd"){
-                    nilai_y.value = miletoyrd(nilai_x.value);
-                } else if(unit_to.value=="ft"){
-                    nilai_y.value = miletoft(nilai_x.value);
-                } else if(unit_to.value=="inc"){
-                    nilai_y.value = miletoinc(nilai_x.value);
-                }
-            } else if(unit_from.value == "yrd"){
-                if(metricunit.includes(unit_to.value)){
-                    nilai_y.value = yrdtometric(nilai_x.value,unit_to.value);
-                } else if(unit_to.value=="mile"){
-                    nilai_y.value = yrdtomile(nilai_x.value);
-                } else if(unit_to.value=="ft"){
-                    nilai_y.value = yrdtoft(nilai_x.value);
-                } else if(unit_to.value=="inc"){
-                    nilai_y.value = yrdtoinc(nilai_x.value);
-                }
-            } else if(unit_from.value == "ft"){
-                if(metricunit.includes(unit_to.value)){
-                    nilai_y.value = fttometric(nilai_x.value,unit_to.value);
-                } else if(unit_to.value=="mile"){
-                    nilai_y.value = fttomile(nilai_x.value);
-                } else if(unit_to.value=="yrd"){
-                    nilai_y.value = fttoyrd(nilai_x.value,unit_from.value);
-                } else if(unit_to.value=="inc"){
-                    nilai_y.value = fttoinc(nilai_x.value);
-                }
-            } else if(unit_from.value == "inc"){
-                if(metricunit.includes(unit_to.value)){
-                    nilai_y.value = inctometric(nilai_x.value,unit_to.value);
-                } else if(unit_to.value=="mile"){
-                    nilai_y.value = inctomile(nilai_x.value);
-                } else if(unit_to.value=="yrd"){
-                    nilai_y.value = inctoyrd(nilai_x.value);
-                } else if(unit_to.value=="ft"){
-                    nilai_y.value = inctoft(nilai_x.value);
-                }
-            }
-        }else{
-            nilai_x.classList.add("is-invalid");
-            nilai_y.classList.add("is-invalid");
-            nilai_y.value = "Error. Kesalahan pada Input";
+    if (metricunit.includes(unit_from)){
+        if(metricunit.includes(unit_to)){
+            return metrictometric(nilai,unit_from,unit_to);
+        } else if(unit_to=="mile"){
+            return metrictomile(nilai,unit_from);
+        } else if(unit_to=="yrd"){
+            return metrictoyrd(nilai,unit_from);
+        } else if(unit_to=="ft"){
+            return metrictoft(nilai,unit_from);
+        } else if(unit_to=="inc"){
+            return metrictoinc(nilai,unit_from);
+        }   
+    } else if(unit_from == "mile"){
+        if(metricunit.includes(unit_to)){
+            return miletometric(nilai,unit_to);
+        } else if(unit_to=="yrd"){
+            return miletoyrd(nilai);
+        } else if(unit_to=="ft"){
+            return miletoft(nilai);
+        } else if(unit_to=="inc"){
+            return miletoinc(nilai);
+        }
+    } else if(unit_from == "yrd"){
+        if(metricunit.includes(unit_to)){
+            return yrdtometric(nilai,unit_to);
+        } else if(unit_to=="mile"){
+            return yrdtomile(nilai);
+        } else if(unit_to=="ft"){
+            return yrdtoft(nilai);
+        } else if(unit_to=="inc"){
+            return yrdtoinc(nilai);
+        }
+    } else if(unit_from == "ft"){
+        if(metricunit.includes(unit_to)){
+            return fttometric(nilai,unit_to);
+        } else if(unit_to=="mile"){
+            return fttomile(nilai);
+        } else if(unit_to=="yrd"){
+            return fttoyrd(nilai,unit_from);
+        } else if(unit_to=="inc"){
+            return fttoinc(nilai);
+        }
+    } else if(unit_from == "inc"){
+        if(metricunit.includes(unit_to)){
+            return inctometric(nilai,unit_to);
+        } else if(unit_to=="mile"){
+            return inctomile(nilai);
+        } else if(unit_to=="yrd"){
+            return inctoyrd(nilai);
+        } else if(unit_to=="ft"){
+            return inctoft(nilai);
         }
     } else {
-        nilai_y.value = ""
-        nilai_x.classList.remove("is-invalid");
-        nilai_y.classList.remove("is-invalid");
+        return ('Unit Not Defined')
     }
 }
 
