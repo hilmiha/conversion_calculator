@@ -10,7 +10,7 @@ window.addEventListener("load", function() {
     prep_mode(input.jenis);
     
     document.getElementById("nilai_x").addEventListener('input', convert);
-    
+    document.getElementById("devmodeswitch").addEventListener('change', devMode);
 });
 
 function createbutton(jenis, units){
@@ -173,6 +173,8 @@ function convert(){
             } else {
                 if (input.jenis == "panjang") {
                     nilaiout_holder.value = convert_panjang(input.nilai, input.unit_from, input.unit_to);
+                } else if(input.jenis == "suhu"){
+                    nilaiout_holder.value = convert_suhu(input.nilai, input.unit_from, input.unit_to);
                 } else {
                     nilaiout_holder.value = "Jenis Not Defined!"
                 }
@@ -187,6 +189,22 @@ function convert(){
         nilaiout_holder.value = "";
         nilaiout_holder.classList.remove("is-invalid");
     }
+}
+
+function devMode(){
+    let switch_btn = document.getElementById('devmodeswitch');
+    let input_part = document.getElementsByName('input_part');
+    if (switch_btn.checked) {
+        input_part.forEach(element => {
+            element.classList.remove('d-none');
+        });
+    } else {
+        input_part.forEach(element => {
+            element.classList.add('d-none');
+        });
+    }
+    
+
 }
 
 
