@@ -87,51 +87,10 @@
                     </div>
                 </div>
                 <input type="text" class="form-control mb-3" id="unit_from" value="" disabled readonly>
-                <div class="row">
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_km" onclick="setUnitForm('km', this.id)">Kilometer</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_hm" onclick="setUnitForm('hm', this.id)">Hektometer</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_dam" onclick="setUnitForm('dam', this.id)">Dekameter</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_m" onclick="setUnitForm('m', this.id)">Meter</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_dm" onclick="setUnitForm('dm', this.id)">Desimeter</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_cm" onclick="setUnitForm('cm', this.id)">Centimeter</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_mm" onclick="setUnitForm('mm', this.id)">Milimeter</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_mile" onclick="setUnitForm('mile', this.id)">Mile</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_yrd" onclick="setUnitForm('yrd', this.id)">Yard</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_ft" onclick="setUnitForm('ft', this.id)">Foot</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_inc" onclick="setUnitForm('inc', this.id)">Inch</button>
-                    </div>
-
-                    <div class="col-6 mb-3" name="suhu_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_c" onclick="setUnitForm('c', this.id)">Celsius</button>
-                    </div>
-                    <div class="col-6 mb-3" name="suhu_btn">
-                        <button type="button" name="suhu_btn" class="btn btn-outline-secondary w-100" id="btn_from_k" onclick="setUnitForm('k', this.id)">Kelvin</button>
-                    </div>
-                    <div class="col-6 mb-3" name="suhu_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_from_f" onclick="setUnitForm('f', this.id)">Fahrenheit</button>
-                    </div>
+                
+                <div class="row" id="btn_list_from">
                 </div>
+        
             </div>
             <div class="col-12 col-md-2 d-flex align-items-center justify-content-center pb-3">
                 <h1>==</h1>
@@ -145,51 +104,10 @@
                     </div>
                 </div>
                 <input type="text" class="form-control mb-3" id="unit_to" value="" disabled readonly>
-                <div class="row">
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_km" onclick="setUnitTo('km', this.id)">Kilometer</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_hm" onclick="setUnitTo('hm', this.id)">Hektometer</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_dam" onclick="setUnitTo('dam', this.id)">Dekameter</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_m" onclick="setUnitTo('m', this.id)">Meter</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_dm" onclick="setUnitTo('dm', this.id)">Desimeter</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_cm" onclick="setUnitTo('cm', this.id)">Centimeter</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_mm" onclick="setUnitTo('mm', this.id)">Milimeter</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_mile" onclick="setUnitTo('mile', this.id)">Mile</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_yrd" onclick="setUnitTo('yrd', this.id)">Yard</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_ft" onclick="setUnitTo('ft', this.id)">Foot</button>
-                    </div>
-                    <div class="col-6 mb-3" name="panjang_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_inc" onclick="setUnitTo('inc', this.id)">Inch</button>
-                    </div>
-
-                    <div class="col-6 mb-3" name="suhu_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_c" onclick="setUnitTo('c', this.id)">Celsius</button>
-                    </div>
-                    <div class="col-6 mb-3" name="suhu_btn">
-                        <button type="button" name="suhu_btn" class="btn btn-outline-secondary w-100" id="btn_to_k" onclick="setUnitTo('k', this.id)">Kelvin</button>
-                    </div>
-                    <div class="col-6 mb-3" name="suhu_btn">
-                        <button type="button" class="btn btn-outline-secondary w-100" id="btn_to_f" onclick="setUnitTo('f', this.id)">Fahrenheit</button>
-                    </div>
+                
+                <div class="row" id="btn_list_to">
                 </div>
+
             </div>
         </div>
         
