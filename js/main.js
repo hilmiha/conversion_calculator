@@ -20,6 +20,8 @@ let btn_to_prev
 function prep_mode(jenis){
     if (jenis=="panjang"){
         input.jenis = "panjang";
+
+        document.getElementById("judul").innerHTML = "Panjang";
         document.getElementById("jenis").value = "panjang"
         document.getElementById("nilai_x").value = "";
         document.getElementById("nilai_y").value = "";
@@ -36,6 +38,8 @@ function prep_mode(jenis){
 
     } else if (jenis=="suhu"){
         input.jenis = "suhu";
+
+        document.getElementById("judul").innerHTML = "Suhu";
         document.getElementById("jenis").value = "suhu"
         document.getElementById("nilai_x").value = "";
         document.getElementById("nilai_y").value = "";
