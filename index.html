@@ -15,12 +15,13 @@
     <script src="js/main.js"></script>
     <script src="js/convert_panjang.js"></script>
     <script src="js/convert_suhu.js"></script>
+    <script src="js/convert_massa.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="row mt-4">
             <div class="col-6 col-sm-4 col-md-2 mb-4 mb-md-0">
-                <button type="button" class="btn btn-outline-dark w-100 p-3 active" id="menu_btn_panjang" onclick="setMode('panjang')">
+                <button type="button" class="btn btn-outline-dark w-100 p-3" id="menu_btn_panjang" onclick="setMode('panjang')">
                     <div class="d-flex flex-column align-items-center">
                         <img src="icons/length-b.png" class="unit_icon_main"  alt="" srcset="">
                         <img src="icons/length-w.png" class="unit_icon_hover"  alt="" srcset="">
@@ -37,42 +38,42 @@
                     </div>
                 </button>
             </div>
-            <div class="col-6 col-sm-4 col-md-2 mb-4 mb-md-0">
-                <button type="button" class="btn btn-outline-dark w-100 p-3" id="menu_btn_luas">
+            <!-- <div class="col-6 col-sm-4 col-md-2 mb-4 mb-md-0">
+                <button type="button" class="btn btn-outline-secondary w-100 p-3" id="menu_btn_luas">
                     <div class="d-flex flex-column align-items-center">
                         <img src="icons/surface-b.png" class="unit_icon_main"  alt="" srcset="">
                         <img src="icons/surface-w.png" class="unit_icon_hover"  alt="" srcset="">
                         <span>Luas</span>
                     </div>
                 </button>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2">
-                <button type="button" class="btn btn-outline-dark w-100 p-3" id="menu_btn_volume">
+            </div> -->
+            <!-- <div class="col-6 col-sm-4 col-md-2">
+                <button type="button" class="btn btn-outline-secondary w-100 p-3" id="menu_btn_volume">
                     <div class="d-flex flex-column align-items-center">
                         <img src="icons/volume-b.png" class="unit_icon_main"  alt="" srcset="">
                         <img src="icons/volume-w.png" class="unit_icon_hover"  alt="" srcset="">
                         <span>Volume</span>
                     </div>
                 </button>
-            </div>
+            </div> -->
             <div class="col-6 col-sm-4 col-md-2">
-                <button type="button" class="btn btn-outline-dark w-100 p-3" id="menu_btn_berat">
+                <button type="button" class="btn btn-outline-dark w-100 p-3" id="menu_btn_massa" onclick="setMode('massa')">
                     <div class="d-flex flex-column align-items-center">
                         <img src="icons/weight-b.png" class="unit_icon_main"  alt="" srcset="">
                         <img src="icons/weight-w.png" class="unit_icon_hover"  alt="" srcset="">
-                        <span>Berat</span>
+                        <span>Massa</span>
                     </div>
                 </button>
             </div>
-            <div class="col-6 col-sm-4 col-md-2">
-                <button type="button" class="btn btn-outline-dark w-100 p-3" id="menu_btn_waktu">
+            <!-- <div class="col-6 col-sm-4 col-md-2">
+                <button type="button" class="btn btn-outline-secondary w-100 p-3" id="menu_btn_waktu">
                     <div class="d-flex flex-column align-items-center">
                         <img src="icons/time-b.png" class="unit_icon_main"  alt="" srcset="">
                         <img src="icons/time-w.png" class="unit_icon_hover"  alt="" srcset="">
                         <span>Waktu</span>
                     </div>
                 </button>
-            </div>
+            </div> -->
         </div>
         <div class="form-check form-switch form-check-reverse mt-4">
             <input class="form-check-input" type="checkbox" role="switch" id="devmodeswitch">

@@ -6,7 +6,7 @@ let input = {
 };
 
 window.addEventListener("load", function() {
-    input.jenis = "panjang";
+    input.jenis = "massa";
     prep_mode(input.jenis);
     
     document.getElementById("nilai_x").addEventListener('input', convert);
@@ -123,6 +123,39 @@ function prep_mode(jenis){
         document.getElementById(btn_menu_prev).classList.add("active");
         document.getElementById(btn_from_prev).classList.add("active");
         document.getElementById(btn_to_prev).classList.add("active");
+    } else if (jenis=="massa"){
+        input.jenis = "massa";
+
+        let massa_units = [
+            ["kg", "Kilogram"], 
+            ["hg", "Hektogram"],
+            ["dag", "Dekagram"],
+            ["g", "Gram"],
+            ["dg", "Desigram"],
+            ["cg", "Centigram"],
+            ["mg", "Miligram"],
+            ["tonm", "Ton Metrik"],
+            ["stn", "Stone"],
+            ["pon", "Pounds"],
+            ["ons", "Ons"]
+        ]
+
+        document.getElementById("judul").innerHTML = "Massa";
+        document.getElementById("jenis").value = "massa"
+        document.getElementById("nilai_x").value = "";
+        document.getElementById("nilai_y").value = "";
+        document.getElementById("unit_from").value = "kg";
+        document.getElementById("unit_to").value = "kg";
+
+        createbutton(jenis, massa_units);
+
+        btn_menu_prev = "menu_btn_massa";
+        btn_from_prev = "btn_from_kg";
+        btn_to_prev = "btn_to_kg";
+
+        document.getElementById(btn_menu_prev).classList.add("active");
+        document.getElementById(btn_from_prev).classList.add("active");
+        document.getElementById(btn_to_prev).classList.add("active");
     }
 }
 
@@ -175,6 +208,8 @@ function convert(){
                     nilaiout_holder.value = convert_panjang(input.nilai, input.unit_from, input.unit_to);
                 } else if(input.jenis == "suhu"){
                     nilaiout_holder.value = convert_suhu(input.nilai, input.unit_from, input.unit_to);
+                } else if(input.jenis == "massa"){
+                    nilaiout_holder.value = convert_massa(input.nilai, input.unit_from, input.unit_to);
                 } else {
                     nilaiout_holder.value = "Jenis Not Defined!"
                 }

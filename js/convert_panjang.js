@@ -1,3 +1,5 @@
+const metricunit = ["mm", "cm", "dm", "m", "dam", "hm", "km"];
+
 function metrictometric(x,from,to){
     let metricunit = ["mm", "cm", "dm", "m", "dam", "hm", "km"];
     let indexof_unit_from = metricunit.indexOf(from);
@@ -11,6 +13,7 @@ function metrictometric(x,from,to){
         return x / 10**dif;
     }
 }
+
 function metrictomile(x,from){
     if (from!="km"){
         x = metrictometric(x,from,"km");
@@ -119,8 +122,6 @@ function inctoft(x){
 }
 
 function convert_panjang(nilai,unit_from,unit_to){
-
-    let metricunit = ["mm", "cm", "dm", "m", "dam", "hm", "km"];
 
     if (metricunit.includes(unit_from)){
         if(metricunit.includes(unit_to)){
